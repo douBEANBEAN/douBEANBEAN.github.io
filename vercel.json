@@ -1,0 +1,11 @@
+{
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--openssl-legacy-provider"
+    },
+    "outputDirectory": "public",
+    "installCommand": "npm install",
+    "buildCommand": "hexo clean && hexo generate"
+  },
+  "routes": [{ "src": "/(.*)", "dest": "/$1" }]
+}
