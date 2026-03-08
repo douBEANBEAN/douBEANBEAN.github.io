@@ -10,6 +10,7 @@ keywords:
 author: 偷吃桃子的睡鼠伯爵
 language: zh-CN
 timezone: ''
+root: /
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
