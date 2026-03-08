@@ -6,25 +6,53 @@
   <% if (page.year) { %>
     <%= page.year %>年<% if (page.month) { %><%= page.month %>月<% } %>归档
   <% } else { %>
-    所有博文归档
+    归档
   <% } %>
 </h1>
 
-<!-- 归档博文列表 -->
-<div class="archive-list">
-  <% if (site.posts.length) { %>
-    <% site.posts.each(function(post) { %>
-      <div class="archive-item">
-        <!-- 发布时间 -->
-        <span class="archive-date"><%= post.date.format('YYYY-MM-DD') %></span>
-        <!-- 博文标题 -->
-        <a href="<%= post.permalink %>" class="archive-link"><%= post.title %></a>
+<!-- 归档博文时间轴 -->
+<% if (site.posts.length) { %>
+  <div class="timeline-container">
+    <% var currentYear = null; %>
+    <% site.posts.sort('date', -1).each(function(post, index) { %>
+      <% var postYear = post.date.format('YYYY'); %>
+      <% if (currentYear !== postYear) { %>
+        <% currentYear = postYear; %>
+        <!-- 年份标题 -->
+        <div class="timeline-year">
+          <span class="year-label"><%= currentYear %></span>
+        </div>
+        <!-- 年份时间轴开始 -->
+        <div class="timeline-year-section">
+      <% } %>
+      
+      <!-- 博文时间轴项 -->
+      <div class="timeline-item">
+        <!-- 时间轴节点 -->
+        <div class="timeline-node"></div>
+        <!-- 时间轴内容 -->
+        <div class="timeline-content">
+          <!-- 发布日期 -->
+          <span class="timeline-date"><%= post.date.format('M/D') %></span>
+          <!-- 博文标题 -->
+          <a href="<%= post.permalink %>" class="timeline-link"><%= post.title %></a>
+        </div>
       </div>
+      
+      <% if (index < site.posts.length - 1) { %>
+        <% var nextPost = site.posts.toArray()[index + 1]; %>
+        <% var nextYear = nextPost.date.format('YYYY'); %>
+        <% if (currentYear !== nextYear) { %>
+          </div><!-- 年份时间轴结束 -->
+        <% } %>
+      <% } else { %>
+        </div><!-- 最后一个年份时间轴结束 -->
+      <% } %>
     <% }) %>
-  <% } else { %>
-    <div class="empty-tip">暂无归档博文</div>
-  <% } %>
-</div>
+  </div>
+<% } else { %>
+  <div class="empty-tip">暂无归档博文</div>
+<% } %>
 
 <!-- 引入页脚组件 -->
 <%- partial('_partial/footer') %>

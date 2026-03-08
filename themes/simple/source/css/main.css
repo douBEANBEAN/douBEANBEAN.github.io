@@ -155,36 +155,131 @@ body {
   padding-left: 10px;
 }
 
-.archive-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* 时间轴容器 */
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.archive-item {
-  display: flex;
-  gap: 20px;
-  padding: 10px 0;
-  border-bottom: 1px dashed #f0f0f0; /* 虚线分隔，文艺感 */
+/* 年份标题 */
+.timeline-year {
+  margin: 40px 0 20px;
+  position: relative;
 }
 
-.archive-date {
+.year-label {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  background: #fff;
+  padding-right: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 年份时间轴部分 */
+.timeline-year-section {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 30px;
+}
+
+/* 时间轴竖线 */
+.timeline-year-section::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #f0f0f0;
+}
+
+/* 时间轴项 */
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* 时间轴节点 */
+.timeline-node {
+  position: absolute;
+  left: -40px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #333;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #f0f0f0;
+  z-index: 1;
+}
+
+/* 时间轴内容 */
+.timeline-content {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+/* 时间轴日期 */
+.timeline-date {
   font-size: 14px;
-  color: #999999;
-  width: 100px; /* 固定宽度，对齐 */
+  color: #999;
+  margin-right: 10px;
 }
 
-.archive-link {
-  color: #333333;
+/* 时间轴链接 */
+.timeline-link {
+  color: #333;
   text-decoration: none;
-  flex: 1; /* 占满剩余宽度 */
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.archive-link:hover {
-  color: #666666;
+.timeline-link:hover {
+  color: #666;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .timeline-year-section {
+    padding-left: 30px;
+  }
+  
+  .timeline-node {
+    left: -30px;
+  }
+  
+  .timeline-content {
+    padding: 12px;
+  }
+  
+  .timeline-date {
+    display: block;
+    margin-bottom: 5px;
+  }
 }
 
 /* 关于页样式 */
+.about-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .about-title {
   font-size: 22px;
   margin-bottom: 30px;

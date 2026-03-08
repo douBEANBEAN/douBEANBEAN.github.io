@@ -5,7 +5,7 @@
 <div class="post-list">
   <!-- 遍历所有博文（按发布时间倒序） -->
   <% if (site.posts.length) { %>
-    <% site.posts.each(function(post) { %>
+    <% site.posts.sort('date', -1).each(function(post) { %>
       <!-- 单篇博文卡片 -->
       <div class="post-card">
         <!-- 博文标题 + 跳转链接 -->
