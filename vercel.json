@@ -3,9 +3,10 @@
     "env": {
       "NODE_OPTIONS": "--openssl-legacy-provider"
     },
-    "outputDirectory": "public",
-    "installCommand": "npm install",
-    "buildCommand": "hexo clean && hexo generate"
+    "installCommand": "npm install -g hexo-cli && npm install",
+    "buildCommand": "hexo clean && hexo generate",
+    "output": "public"  
   },
-  "routes": [{ "src": "/(.*)", "dest": "/$1" }]
+  "routes": [{ "src": "/(.*)", "dest": "/$1" }],
+  "framework": null
 }
