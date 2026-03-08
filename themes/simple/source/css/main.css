@@ -1,0 +1,239 @@
+/* 全局样式重置：消除默认边距、统一盒模型 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 全局基础样式：白色背景、宋体、灰色文字 */
+body {
+  background-color: #ffffff; /* 背景色：白色 */
+  font-family: "SimSun", serif; /* 字体：宋体 */
+  color: #333333; /* 文字主色：深灰 */
+  line-height: 1.8; /* 行高：提升阅读体验 */
+  font-size: 16px; /* 基础字号 */
+}
+
+/* 导航栏样式 */
+.navbar {
+  width: 100%;
+  height: 60px; /* 导航栏高度 */
+  line-height: 60px;
+  border-bottom: 1px solid #f0f0f0; /* 底部浅灰边框，增加层次感 */
+  position: fixed; /* 固定在顶部 */
+  top: 0;
+  left: 0;
+  background-color: #ffffff; /* 导航栏背景白 */
+  z-index: 999; /* 防止被遮挡 */
+}
+
+/* 导航栏内容容器：居中 + 固定宽度 */
+.nav-container {
+  width: 90%;
+  max-width: 1000px; /* 最大宽度，适配大屏 */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* 站点名左，菜单右 */
+  align-items: center;
+}
+
+/* 站点名称样式 */
+.site-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 导航菜单样式 */
+.nav-menu {
+  list-style: none; /* 去掉列表圆点 */
+  display: flex;
+  gap: 30px; /* 菜单项间距 */
+}
+
+/* 导航链接样式 */
+.nav-link {
+  color: #333333; /* 链接默认色 */
+  text-decoration: none; /* 去掉下划线 */
+  transition: color 0.3s; /*  hover 过渡动画 */
+}
+
+/* 导航链接 hover 效果 */
+.nav-link:hover {
+  color: #666666; /* 浅灰，文艺感 */
+}
+
+/* 内容容器：避开固定导航栏，居中 */
+.content-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 80px auto 60px; /* 顶部留导航栏空间，底部留页脚空间 */
+}
+
+/* 首页博文列表样式 */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* 卡片间距 */
+}
+
+/* 博文卡片样式：简洁方框 */
+.post-card {
+  padding: 20px;
+  border: 1px solid #f0f0f0; /* 浅灰边框 */
+  border-radius: 4px; /* 轻微圆角，增加柔和感 */
+  transition: box-shadow 0.3s; /* hover 阴影动画 */
+}
+
+/* 博文卡片 hover 效果：轻微阴影，提升交互感 */
+.post-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 博文标题样式 */
+.post-title {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+/* 博文标题链接样式 */
+.post-link {
+  color: #333333;
+  text-decoration: none;
+}
+
+/* 博文标题链接 hover 效果 */
+.post-link:hover {
+  color: #666666;
+}
+
+/* 博文元信息（时间）样式 */
+.post-meta {
+  font-size: 14px;
+  color: #999999; /* 浅灰，弱化元信息 */
+  margin-bottom: 10px;
+}
+
+/* 博文摘要样式 */
+.post-excerpt {
+  font-size: 15px;
+  color: #666666; /* 中灰，区分标题和摘要 */
+}
+
+/* 无博文提示样式 */
+.empty-tip {
+  text-align: center;
+  color: #999999;
+  padding: 60px 0;
+}
+
+/* 文章详情页样式 */
+.post-detail-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.post-detail-meta {
+  font-size: 14px;
+  color: #999999;
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.post-detail-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* 归档页样式 */
+.archive-title {
+  font-size: 22px;
+  margin-bottom: 30px;
+  border-left: 4px solid #f0f0f0; /* 左侧竖线装饰 */
+  padding-left: 10px;
+}
+
+.archive-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.archive-item {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px dashed #f0f0f0; /* 虚线分隔，文艺感 */
+}
+
+.archive-date {
+  font-size: 14px;
+  color: #999999;
+  width: 100px; /* 固定宽度，对齐 */
+}
+
+.archive-link {
+  color: #333333;
+  text-decoration: none;
+  flex: 1; /* 占满剩余宽度 */
+}
+
+.archive-link:hover {
+  color: #666666;
+}
+
+/* 关于页样式 */
+.about-title {
+  font-size: 22px;
+  margin-bottom: 30px;
+  border-left: 4px solid #f0f0f0;
+  padding-left: 10px;
+}
+
+.about-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* 页脚样式 */
+.footer {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #f0f0f0;
+  background-color: #ffffff;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  color: #999999;
+}
+
+/* 响应式适配：移动端优化 */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+  .nav-menu {
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .content-container {
+    margin-top: 120px; /* 适配移动端导航栏高度 */
+  }
+  .archive-item {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .archive-date {
+    width: auto;
+  }
+}

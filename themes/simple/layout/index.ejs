@@ -1,0 +1,28 @@
+<!-- 引入头部组件 -->
+<%- partial('_partial/header') %>
+
+<!-- 博文列表容器 -->
+<div class="post-list">
+  <!-- 遍历所有博文（按发布时间倒序） -->
+  <% if (site.posts.length) { %>
+    <% site.posts.each(function(post) { %>
+      <!-- 单篇博文卡片 -->
+      <div class="post-card">
+        <!-- 博文标题 + 跳转链接 -->
+        <h2 class="post-title">
+          <a href="<%= post.permalink %>" class="post-link"><%= post.title %></a>
+        </h2>
+        <!-- 博文元信息：发布时间 -->
+        <div class="post-meta"><%= post.date.format('YYYY-MM-DD') %></div>
+        <!-- 博文摘要（自动截取前150字） -->
+        <div class="post-excerpt"><%= post.excerpt.substring(0, 150) %>...</div>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <!-- 无博文时的提示 -->
+    <div class="empty-tip">暂无博文，快来写第一篇吧～</div>
+  <% } %>
+</div>
+
+<!-- 引入页脚组件 -->
+<%- partial('_partial/footer') %>

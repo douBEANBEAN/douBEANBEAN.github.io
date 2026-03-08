@@ -1,0 +1,30 @@
+<!-- 引入头部组件 -->
+<%- partial('_partial/header') %>
+
+<!-- 归档页标题 -->
+<h1 class="archive-title">
+  <% if (page.year) { %>
+    <%= page.year %>年<% if (page.month) { %><%= page.month %>月<% } %>归档
+  <% } else { %>
+    所有博文归档
+  <% } %>
+</h1>
+
+<!-- 归档博文列表 -->
+<div class="archive-list">
+  <% if (site.posts.length) { %>
+    <% site.posts.each(function(post) { %>
+      <div class="archive-item">
+        <!-- 发布时间 -->
+        <span class="archive-date"><%= post.date.format('YYYY-MM-DD') %></span>
+        <!-- 博文标题 -->
+        <a href="<%= post.permalink %>" class="archive-link"><%= post.title %></a>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <div class="empty-tip">暂无归档博文</div>
+  <% } %>
+</div>
+
+<!-- 引入页脚组件 -->
+<%- partial('_partial/footer') %>

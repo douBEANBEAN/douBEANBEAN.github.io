@@ -1,0 +1,15 @@
+<!-- 引入头部组件 -->
+<%- partial('_partial/header') %>
+
+<!-- About 页内容容器 -->
+<div class="about-page" style="max-width: 800px; margin: 20px auto; padding: 0 20px; font-family: SimSun;">
+  <h1 class="about-title" style="font-size: 24px; margin: 20px 0; border-left: 4px solid #f0f0f0; padding-left: 10px;">
+    <%= page.title %>
+  </h1>
+  <div class="about-content" style="font-size: 16px; line-height: 2; color: #333;">
+    <%- page.content %>  <!-- 解析 About 页的 Markdown 内容 -->
+  </div>
+</div>
+
+<!-- 引入页脚组件 -->
+<%- partial('_partial/footer') %>

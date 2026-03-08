@@ -1,0 +1,22 @@
+<!-- 引入头部组件 -->
+<%- partial('_partial/header') %>
+
+<!-- 关键：先判断 post 变量是否存在 -->
+<% if (typeof post === 'undefined') { %>
+  <div class="empty-tip" style="text-align:center; padding: 50px 0;">
+    _(:3」∠)_诶呀，文章不存在呢
+  </div>
+<% } else { %>
+  <!-- 单篇博文详情容器 -->
+  <div class="post-detail">
+    <!-- 博文标题 -->
+    <h1 class="post-detail-title"><%= post.title %></h1>
+    <!-- 博文元信息 -->
+    <div class="post-detail-meta"><%= post.date.format('YYYY-MM-DD') %></div>
+    <!-- 博文正文（解析 Markdown） -->
+    <div class="post-detail-content"><%- post.content %></div>
+  </div>
+<% } %>
+
+<!-- 引入页脚组件 -->
+<%- partial('_partial/footer') %>

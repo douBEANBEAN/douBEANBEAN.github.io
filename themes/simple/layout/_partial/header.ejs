@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <!-- 适配移动端 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 站点标题：优先取文章标题，无则取站点标题 -->
+  <title><%= page.title || config.title %></title>
+  <!-- 引入核心样式（绝对路径，适配 GitHub Pages） -->
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <!-- 导航栏容器 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- 站点名称 -->
+      <div class="site-name"><%= config.title %></div>
+      <!-- 导航菜单 -->
+      <ul class="nav-menu">
+        <!-- 主页：跳转到根目录 -->
+        <li class="nav-item"><a href="/" class="nav-link">主页</a></li>
+        <!-- 归档：跳转到归档页 -->
+        <li class="nav-item"><a href="/archives/" class="nav-link">归档</a></li>
+        <!-- 关于：跳转到关于页 -->
+        <li class="nav-item"><a href="/about/" class="nav-link">关于</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- 内容容器：留给子模板填充 -->
+  <main class="content-container">
