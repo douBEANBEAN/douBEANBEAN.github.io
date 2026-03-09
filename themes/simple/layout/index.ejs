@@ -6,6 +6,7 @@
   <!-- 遍历所有博文（按发布时间倒序） -->
   <% if (site.posts.length) { %>
     <% site.posts.sort('date', -1).each(function(post) { %>
+      <% if (!post.hidden) { %>
       <!-- 单篇博文卡片 -->
       <div class="post-card">
         <!-- 博文标题 + 跳转链接 -->
@@ -17,6 +18,7 @@
         <!-- 博文摘要（自动截取前150字） -->
         <div class="post-excerpt"><%= post.excerpt.substring(0, 150) %>...</div>
       </div>
+      <% } %>
     <% }) %>
   <% } else { %>
     <!-- 无博文时的提示 -->

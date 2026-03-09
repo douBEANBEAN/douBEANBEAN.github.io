@@ -12,6 +12,123 @@ body {
   color: #333333; /* 文字主色：深灰 */
   line-height: 1.8; /* 行高：提升阅读体验 */
   font-size: 16px; /* 基础字号 */
+  transition: all 0.3s ease; /* 模式切换过渡效果 */
+}
+
+/* 夜间模式 */
+body.dark-mode {
+  background-color: #1a1a1a; /* 背景色：深灰 */
+  color: #e0e0e0; /* 文字主色：浅灰 */
+}
+
+/* 彩色模式（蓝白配色） */
+body.color-mode {
+  background-color: #f0f8ff; /* 背景色：淡蓝 */
+  color: #00008b; /* 文字主色：深蓝 */
+}
+
+/* 夜间模式下的导航栏 */
+body.dark-mode .navbar {
+  background-color: #2d2d2d;
+  border-bottom-color: #444;
+}
+
+body.dark-mode .site-name,
+body.dark-mode .nav-link {
+  color: #e0e0e0;
+}
+
+body.dark-mode .nav-link:hover {
+  color: #fff;
+}
+
+/* 彩色模式下的导航栏 */
+body.color-mode .navbar {
+  background-color: #87ceeb;
+  border-bottom-color: #4682b4;
+}
+
+body.color-mode .site-name,
+body.color-mode .nav-link {
+  color: #00008b;
+}
+
+body.color-mode .nav-link:hover {
+  color: #191970;
+}
+
+/* 夜间模式下的卡片和内容 */
+body.dark-mode .post-card,
+body.dark-mode .timeline-content {
+  background-color: #2d2d2d;
+  border-color: #444;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .post-link,
+body.dark-mode .timeline-link {
+  color: #e0e0e0;
+}
+
+body.dark-mode .post-link:hover,
+body.dark-mode .timeline-link:hover {
+  color: #fff;
+}
+
+body.dark-mode .post-meta,
+body.dark-mode .timeline-date {
+  color: #999;
+}
+
+body.dark-mode .post-excerpt {
+  color: #ccc;
+}
+
+/* 彩色模式下的卡片和内容 */
+body.color-mode .post-card,
+body.color-mode .timeline-content {
+  background-color: #ffffff;
+  border-color: #b0e0e6;
+  box-shadow: 0 2px 8px rgba(70, 130, 180, 0.2);
+}
+
+body.color-mode .post-link,
+body.color-mode .timeline-link {
+  color: #00008b;
+}
+
+body.color-mode .post-link:hover,
+body.color-mode .timeline-link:hover {
+  color: #191970;
+}
+
+body.color-mode .post-meta,
+body.color-mode .timeline-date {
+  color: #4682b4;
+}
+
+body.color-mode .post-excerpt {
+  color: #191970;
+}
+
+/* 夜间模式下的页脚 */
+body.dark-mode .footer {
+  background-color: #2d2d2d;
+  border-top-color: #444;
+}
+
+body.dark-mode .footer-container {
+  color: #999;
+}
+
+/* 彩色模式下的页脚 */
+body.color-mode .footer {
+  background-color: #87ceeb;
+  border-top-color: #4682b4;
+}
+
+body.color-mode .footer-container {
+  color: #00008b;
 }
 
 /* 导航栏样式 */
@@ -308,6 +425,49 @@ body {
   text-align: center;
   font-size: 14px;
   color: #999999;
+}
+
+/* 模式切换按钮 */
+.mode-toggle {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  z-index: 998;
+}
+
+.mode-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  color: #333;
+}
+
+.mode-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 夜间模式下的按钮 */
+body.dark-mode .mode-btn {
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+/* 彩色模式下的按钮 */
+body.color-mode .mode-btn {
+  background-color: #87ceeb;
+  color: #00008b;
+  border: 2px solid #00008b;
 }
 
 /* 响应式适配：移动端优化 */

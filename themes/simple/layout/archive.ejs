@@ -15,6 +15,7 @@
   <div class="timeline-container">
     <% var currentYear = null; %>
     <% site.posts.sort('date', -1).each(function(post, index) { %>
+      <% if (!post.hidden) { %>
       <% var postYear = post.date.format('YYYY'); %>
       <% if (currentYear !== postYear) { %>
         <% currentYear = postYear; %>
@@ -47,6 +48,7 @@
         <% } %>
       <% } else { %>
         </div><!-- 最后一个年份时间轴结束 -->
+      <% } %>
       <% } %>
     <% }) %>
   </div>

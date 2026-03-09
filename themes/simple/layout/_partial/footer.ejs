@@ -1,9 +1,15 @@
   </main>
+  <!-- 模式切换按钮 -->
+  <div class="mode-toggle">
+    <button class="mode-btn" id="mode-toggle-btn" title="切换模式">☀️</button>
+  </div>
   <!-- 页脚 -->
   <footer class="footer">
     <div class="footer-container">
       <!-- 版权信息：自动获取当前年份 + 站点作者 -->
-      <p>&copy; <%= new Date().getFullYear() %> <%= config.author || '博客作者' %>. All Rights Reserved.</p>
+      <p>&copy; <%= new Date().getFullYear() %> <%= config.author || '博客作者' %></p>
+      <p>All rights reserved.</p>
+      <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></p>
     </div>
   </footer>
   <!-- 引入 JS 文件 -->
