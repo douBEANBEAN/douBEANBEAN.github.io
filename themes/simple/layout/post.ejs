@@ -57,7 +57,7 @@
         <% } %>
       </div>
       <!-- 博文正文（解析 Markdown） -->
-      <div class="post-detail-content"><%- page.content.replace(/^.*?<span id="more"><\/span>/, '') %></div>
+      <div class="post-detail-content"><%- page.content.replace(/^[\s\S]*?<span id="more"><\/span>/, '') %></div>
       <a id="bottom"></a>
     </div>
   </div>

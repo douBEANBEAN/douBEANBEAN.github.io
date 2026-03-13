@@ -16,6 +16,10 @@
   margin-bottom: 30px;
   border-bottom: var(--border-width) solid var(--light-color);
   padding-bottom: 10px;
+  max-width: 800px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-detail-container {
@@ -117,7 +121,6 @@
   font-family: 'Noto Serif SC', "SimSun", serif;
   font-weight: 400; /* regular字重 */
   max-width: 800px;
-  width: 90%;
   margin: 0 auto;
   text-align: justify;
 }
@@ -136,6 +139,14 @@
   
   .toc-container {
     display: none;
+  }
+  
+  /* 移动端文章内容 */
+  .post-detail-content {
+    max-width: 100%;
+    width: 100%;
+    padding-left: 2em !important;
+    padding-right: 2em !important;
   }
   
   /* 移动端侧边栏目录 */
