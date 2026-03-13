@@ -1,0 +1,233 @@
+/* 组件相关样式 */
+
+/* 站点名称样式 */
+.site-name {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
+/* 导航菜单样式 */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+
+
+/* 导航链接样式 */
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+  cursor: var(--cursor-click);
+}
+
+/* 导航链接 hover 效果 */
+.nav-link:hover {
+  color: var(--secondary-color);
+  cursor: var(--cursor-click);
+}
+
+/* 首页博文列表样式 */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* 博文卡片样式：简洁方框 */
+.post-card {
+  padding: var(--spacing-md);
+  border: var(--border-width) solid var(--light-color);
+  border-radius: var(--border-radius);
+  transition: box-shadow 0.3s;
+}
+
+/* 博文卡片 hover 效果：轻微阴影，提升交互感 */
+.post-card:hover {
+  box-shadow: var(--box-shadow);
+  transform: scale(1.01);
+}
+
+/* 博文标题样式 */
+.post-title {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+/* 博文标题链接样式 */
+.post-link {
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: var(--cursor-click);
+}
+
+/* 博文标题链接 hover 效果 */
+.post-link:hover {
+  color: var(--secondary-color);
+  cursor: var(--cursor-click);
+}
+
+/* 博文元信息（时间）样式 */
+.post-meta {
+  font-size: var(--font-size-sm);
+  color: #999999;
+  margin-bottom: 10px;
+}
+
+/* 博文摘要样式 */
+.post-excerpt {
+  font-size: 15px;
+  color: var(--secondary-color);
+}
+
+/* 无博文提示样式 */
+.empty-tip {
+  text-align: center;
+  color: #999999;
+  padding: 60px 0;
+}
+
+/* 文章详情页样式 */
+.post-detail-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.post-detail-meta {
+  font-size: var(--font-size-sm);
+  color: #999999;
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: var(--border-width) solid var(--light-color);
+  padding-bottom: 10px;
+}
+
+.post-detail-content {
+  font-size: var(--font-size-base);
+  line-height: 2;
+}
+
+/* 归档页样式 */
+.archive-title {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-lg);
+  border-left: 4px solid #0053b9;
+  padding-left: 10px;
+}
+
+/* 关于页标题样式 */
+.about-title {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-lg);
+  border-left: 4px solid #0053b9;
+  padding-left: 10px;
+}
+
+/* 关于页内容样式 */
+.about-content {
+  font-size: var(--font-size-base);
+  line-height: 2;
+}
+
+/* 时间轴容器 */
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 年份标题 */
+.timeline-year {
+  margin: 40px 0 20px;
+  position: relative;
+}
+
+.year-label {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+  background: var(--background-color);
+  padding-right: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 年份时间轴部分 */
+.timeline-year-section {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 30px;
+}
+
+/* 时间轴竖线 */
+.timeline-year-section::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--light-color);
+}
+
+/* 时间轴项 */
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* 时间轴节点 */
+.timeline-node {
+  position: absolute;
+  left: -40px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: 3px solid var(--background-color);
+  box-shadow: 0 0 0 2px var(--light-color);
+  z-index: 1;
+}
+
+/* 时间轴内容 */
+.timeline-content {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+/* 时间轴日期 */
+.timeline-date {
+  font-size: var(--font-size-sm);
+  color: #999;
+  margin-right: 10px;
+}
+
+/* 时间轴链接 */
+.timeline-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  cursor: var(--cursor-click);
+}
+
+.timeline-link:hover {
+  color: var(--secondary-color);
+  cursor: var(--cursor-click);
+}

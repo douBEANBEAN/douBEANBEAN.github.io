@@ -1,0 +1,68 @@
+/* 布局相关样式 */
+
+/* 全局基础样式 */
+body {
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  line-height: 1.8;
+  font-size: var(--font-size-base);
+  transition: var(--transition);
+  cursor: var(--cursor-default); /* 添加自定义光标 */
+}
+
+/* 内容容器：避开固定导航栏，居中 */
+.content-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 80px auto 60px;
+  position: relative;
+}
+
+/* 导航栏样式 */
+.navbar {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border-bottom: var(--border-width) solid var(--light-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--background-color);
+  z-index: 999;
+}
+
+/* 导航栏内容容器：居中 + 固定宽度 */
+.nav-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 页脚样式 */
+.footer {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border-top: var(--border-width) solid var(--light-color);
+  background-color: var(--background-color);
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: #999999;
+}
+
+/* 关于页样式 */
+.about-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

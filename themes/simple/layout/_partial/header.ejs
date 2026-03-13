@@ -7,7 +7,13 @@
   <!-- 站点标题：优先取文章标题，无则取站点标题 -->
   <title><%= page.title || config.title %></title>
   <!-- 引入核心样式（绝对路径，适配 GitHub Pages） -->
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/sidebar.css">
+  <link rel="stylesheet" href="/css/themes.css">
+  <link rel="stylesheet" href="/css/responsive.css">
   <!-- 网站图标 -->
   <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico">
@@ -18,6 +24,12 @@
     <div class="nav-container">
       <!-- 站点名称 -->
       <div class="site-name"><%= config.title %></div>
+      <!-- 汉堡菜单按钮（移动端） -->
+      <button class="menu-toggle" id="menu-toggle">
+        <span class="menu-icon"></span>
+        <span class="menu-icon"></span>
+        <span class="menu-icon"></span>
+      </button>
       <!-- 导航菜单 -->
       <ul class="nav-menu">
         <!-- 主页：跳转到根目录 -->
@@ -29,5 +41,25 @@
       </ul>
     </div>
   </nav>
+  
+  <!-- 侧边栏（移动端） -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-container">
+      <!-- 关闭按钮 -->
+      <button class="sidebar-close" id="sidebar-close">×</button>
+      <!-- 侧边栏菜单 -->
+      <ul class="sidebar-menu">
+        <!-- 主页：跳转到根目录 -->
+        <li class="sidebar-item"><a href="/" class="sidebar-link">主页</a></li>
+        <!-- 归档：跳转到归档页 -->
+        <li class="sidebar-item"><a href="/archives/" class="sidebar-link">归档</a></li>
+        <!-- 关于：跳转到关于页 -->
+        <li class="sidebar-item"><a href="/about/" class="sidebar-link">关于</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- 遮罩层 -->
+  <div class="overlay" id="overlay"></div>
   <!-- 内容容器：留给子模板填充 -->
   <main class="content-container">

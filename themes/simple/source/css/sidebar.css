@@ -1,0 +1,123 @@
+/**
+ * 侧边栏样式
+ */
+
+/* 汉堡菜单按钮 */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: var(--cursor-click);
+  padding: 0;
+  z-index: 1000;
+}
+
+.menu-icon {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-color);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 280px;
+  height: 100vh;
+  background-color: var(--background-color);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar-container {
+  padding: 20px;
+}
+
+.sidebar-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: var(--cursor-click);
+  color: var(--text-color);
+}
+
+.sidebar-menu {
+  list-style: none;
+  margin-top: 60px;
+}
+
+.sidebar-item {
+  margin-bottom: 20px;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 10px 0;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+  cursor: var(--cursor-click);
+}
+
+.sidebar-link:hover {
+  color: var(--secondary-color);
+}
+
+/* 遮罩层 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 998;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 夜间模式下的侧边栏 */
+body.dark-mode .sidebar {
+  background-color: var(--dark-background);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .sidebar-close {
+  color: var(--dark-text);
+}
+
+body.dark-mode .sidebar-link {
+  color: var(--dark-text);
+}
+
+body.dark-mode .sidebar-link:hover {
+  color: #fff;
+}
+
+body.dark-mode .menu-icon {
+  background-color: var(--dark-text);
+}

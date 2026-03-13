@@ -1,0 +1,118 @@
+/* 主题相关样式 */
+
+/* 夜间模式下的装饰竖线 */
+body.dark-mode .archive-title,
+body.dark-mode .about-title {
+  border-left-color: #fff; 
+}
+
+/* 夜间模式 */
+body.dark-mode {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+}
+
+/* 夜间模式下的导航栏 */
+body.dark-mode .navbar {
+  background-color: var(--dark-card);
+  border-bottom-color: var(--dark-border);
+}
+
+body.dark-mode .site-name,
+body.dark-mode .nav-link {
+  color: var(--dark-text);
+}
+
+body.dark-mode .nav-link:hover {
+  color: #fff;
+}
+
+/* 夜间模式下的可点击元素光标 */
+body.dark-mode .nav-link {
+  cursor: var(--cursor-click-dark);
+}
+
+body.dark-mode .post-link {
+  cursor: var(--cursor-click-dark);
+}
+
+body.dark-mode .timeline-link {
+  cursor: var(--cursor-click-dark);
+}
+
+body.dark-mode .mode-btn {
+  cursor: var(--cursor-click-dark);
+}
+
+/* 夜间模式下的卡片和内容 */
+body.dark-mode .post-card,
+body.dark-mode .timeline-content {
+  background-color: var(--dark-card);
+  border-color: var(--dark-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .post-link,
+body.dark-mode .timeline-link {
+  color: var(--dark-text);
+}
+
+body.dark-mode .post-link:hover,
+body.dark-mode .timeline-link:hover {
+  color: #fff;
+}
+
+body.dark-mode .post-meta,
+body.dark-mode .timeline-date {
+  color: #999;
+}
+
+body.dark-mode .post-excerpt {
+  color: #ccc;
+}
+
+/* 夜间模式下的页脚 */
+body.dark-mode .footer {
+  background-color: var(--dark-card);
+  border-top-color: var(--dark-border);
+}
+
+body.dark-mode .footer-container {
+  color: #999;
+}
+
+/* 模式切换按钮 */
+.mode-toggle {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  z-index: 998;
+}
+
+.mode-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.mode-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 夜间模式下的按钮 */
+body.dark-mode .mode-btn {
+  background-color: var(--dark-card);
+  color: var(--dark-text);
+  border: 2px solid #fff;
+}

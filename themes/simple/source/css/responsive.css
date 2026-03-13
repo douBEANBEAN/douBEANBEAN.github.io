@@ -1,0 +1,86 @@
+/* 响应式设计样式 */
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  /* 导航栏 */
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0;
+  }
+  
+  /* 隐藏桌面端导航菜单 */
+  .nav-menu {
+    display: none;
+  }
+  
+  /* 显示汉堡菜单按钮 */
+  .menu-toggle {
+    display: flex;
+  }
+  
+  /* 内容容器 */
+  .content-container {
+    margin-top: 80px;
+  }
+  
+  /* 时间轴 */
+  .timeline-year-section {
+    padding-left: 30px;
+  }
+  
+  .timeline-node {
+    left: -30px;
+  }
+  
+  .timeline-content {
+    padding: 12px;
+  }
+  
+  .timeline-date {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* 模式切换按钮 */
+  .mode-toggle {
+    top: 80px;
+  }
+}
+
+/* 平板端适配 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* 内容容器 */
+  .content-container {
+    width: 95%;
+  }
+  
+  /* 导航栏 */
+  .nav-container {
+    width: 95%;
+  }
+  
+  /* 页脚 */
+  .footer-container {
+    width: 95%;
+  }
+}
+
+/* 大屏适配 */
+@media (min-width: 1025px) {
+  /* 内容容器 */
+  .content-container {
+    max-width: 1200px;
+  }
+  
+  /* 导航栏 */
+  .nav-container {
+    max-width: 1200px;
+  }
+  
+  /* 页脚 */
+  .footer-container {
+    max-width: 1200px;
+  }
+}
