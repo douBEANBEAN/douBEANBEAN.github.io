@@ -27,17 +27,6 @@ body.dark-mode .nav-link:hover {
   color: #fff;
 }
 
-/* 夜间模式下的链接 */
-body.dark-mode a {
-  color: #64b5f6;
-  text-decoration: none;
-}
-
-body.dark-mode a:hover {
-  color: #90caf9;
-  text-decoration: underline;
-}
-
 /* 夜间模式下的可点击元素 */
 body.dark-mode .toc-item a,
 body.dark-mode .sidebar-toc-link,
