@@ -74,14 +74,15 @@
 @media (max-width: 768px) {
   .category-filter {
     position: static;
-    background-color: var(--background-color);
-    border: var(--border-width) solid var(--light-color);
-    border-radius: var(--border-radius);
-    padding: 20px;
-    box-shadow: var(--box-shadow);
+    background-color: transparent;
+    border: none;
+    border-top: var(--border-width) solid var(--light-color);
+    border-radius: 0;
+    padding: 20px 0;
+    box-shadow: none;
     width: 100%;
     max-width: 800px;
-    margin: 0 auto 30px;
+    margin: 20px auto 30px;
     display: flex;
     flex-direction: column;
     gap: 15px;
