@@ -14,12 +14,24 @@
       <div class="toc-title">目录</div>
       <ul class="toc-list">
         <li class="toc-item toc-top"><a href="#top">始</a></li>
-        <% if (page.toc && page.toc.length) { %>
-          <% page.toc.forEach(function(item) { %>
-            <li class="toc-item toc-level-<%= item.level %>">
-              <a href="#<%= item.id %>"><%= item.text %></a>
-            </li>
-          <% }) %>
+        <!-- 手动解析content生成TOC -->
+        <% if (page.content) { %>
+          <% var content = page.content; %>
+          <% var headings = content.match(/<h([1-3])(.*?)id="([^"]+)"(.*?)>(.*?)<\/h[1-3]>/g); %>
+          <% if (headings) { %>
+            <% headings.forEach(function(heading) { %>
+              <% var level = heading.match(/<h([1-3])/)[1]; %>
+              <% var id = heading.match(/id="([^"]+)"/)[1]; %>
+              <% var text = heading.match(/>(.*?)<\/h[1-3]>/)[1].replace(/<[^>]*>/g, ''); %>
+              <li class="toc-item toc-level-<%= level %>">
+                <a href="#<%= id %>"><%= text %></a>
+              </li>
+            <% }) %>
+          <% } else { %>
+            <li class="toc-item"><a href="#">无标题</a></li>
+          <% } %>
+        <% } else { %>
+          <li class="toc-item"><a href="#">无内容</a></li>
         <% } %>
         <li class="toc-item toc-bottom"><a href="#bottom">末</a></li>
       </ul>
@@ -53,10 +65,38 @@
   <!-- 目录导航脚本 -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const tocItems = document.querySelectorAll('.toc-item a');
-      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      // 动态生成TOC
+      const tocList = document.querySelector('.toc-list');
+      const headings = document.querySelectorAll('h1, h2, h3');
+      
+      // 清空TOC列表（保留"始"和"末"）
+      const tocTop = tocList.querySelector('.toc-top');
+      const tocBottom = tocList.querySelector('.toc-bottom');
+      tocList.innerHTML = '';
+      tocList.appendChild(tocTop);
+      
+      // 添加标题到TOC
+      headings.forEach(function(heading) {
+        const id = heading.getAttribute('id');
+        if (id) {
+          const text = heading.textContent;
+          const level = heading.tagName.substring(1);
+          const li = document.createElement('li');
+          li.className = `toc-item toc-level-${level}`;
+          const a = document.createElement('a');
+          a.href = `#${id}`;
+          a.textContent = text;
+          li.appendChild(a);
+          tocList.appendChild(li);
+        }
+      });
+      
+      // 添加"末"
+      tocList.appendChild(tocBottom);
       
       // 滚动监听
+      const tocItems = document.querySelectorAll('.toc-item a');
+      
       window.addEventListener('scroll', function() {
         let current = '';
         

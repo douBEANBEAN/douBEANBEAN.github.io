@@ -66,20 +66,13 @@
       </ul>
       
       <!-- 文章目录（仅在文章页显示） -->
-      <% if (page.type === 'post' && page.toc && page.toc.length) { %>
-        <div class="sidebar-toc">
-          <div class="sidebar-toc-title">文章目录</div>
-          <ul class="sidebar-toc-list">
-            <li class="sidebar-toc-item"><a href="#top" class="sidebar-toc-link">始</a></li>
-            <% page.toc.forEach(function(item) { %>
-              <li class="sidebar-toc-item sidebar-toc-level-<%= item.level %>">
-                <a href="#<%= item.id %>" class="sidebar-toc-link"><%= item.text %></a>
-              </li>
-            <% }) %>
-            <li class="sidebar-toc-item"><a href="#bottom" class="sidebar-toc-link">末</a></li>
-          </ul>
-        </div>
-      <% } %>
+      <div class="sidebar-toc" id="sidebar-toc">
+        <div class="sidebar-toc-title">文章目录</div>
+        <ul class="sidebar-toc-list">
+          <li class="sidebar-toc-item"><a href="#top" class="sidebar-toc-link">始</a></li>
+          <li class="sidebar-toc-item"><a href="#bottom" class="sidebar-toc-link">末</a></li>
+        </ul>
+      </div>
     </div>
   </div>
   
