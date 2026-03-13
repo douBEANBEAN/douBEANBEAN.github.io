@@ -139,33 +139,6 @@
   padding-left: 1em !important;
 }
 
-/* 评论系统样式 */
-.comment-section {
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: var(--border-width) solid var(--light-color);
-  width: 100%;
-  max-width: 800px;
-}
-
-.comment-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: var(--text-color);
-  font-family: 'Noto Serif SC', "华文中宋", "STZhongsong", serif;
-  text-align: center;
-}
-
-/* 夜间模式评论系统样式 */
-body.dark-mode .comment-section {
-  border-top-color: var(--dark-border);
-}
-
-body.dark-mode .comment-title {
-  color: var(--dark-text);
-}
-
 /* 响应式适配 */
 @media (max-width: 992px) {
   .post-detail-container {

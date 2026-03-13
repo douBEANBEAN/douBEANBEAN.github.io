@@ -67,8 +67,9 @@
       <% } else { %>
         </div><!-- 最后一个年份时间轴结束 -->
       <% } %>
-      <% }
+      <% } %>
     <% }) %>
+    </div>
   </div>
 <% } else { %>
   <div class="empty-tip">暂无归档博文</div>
@@ -80,12 +81,8 @@
     // 检查是否为移动端
     const isMobile = window.innerWidth <= 768;
     if (isMobile) {
-      // 移动端取消分类筛选功能
-      const categoryFilter = document.querySelector('.category-filter');
-      if (categoryFilter) {
-        categoryFilter.style.display = 'none';
-      }
-      return;
+      // 移动端保持分类筛选功能
+      // 不需要隐藏分类筛选栏，因为CSS已经处理了响应式布局
     }
 
     const filterTags = document.querySelectorAll('.filter-tag');
