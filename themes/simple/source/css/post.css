@@ -145,8 +145,16 @@
   .post-detail-content {
     max-width: 100%;
     width: 100%;
-    padding-left: 2em !important;
-    padding-right: 2em !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* 移动端标题样式 */
+  .post-detail-content h1,
+  .post-detail-content h2,
+  .post-detail-content h3 {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
   }
   
   /* 移动端侧边栏目录 */
