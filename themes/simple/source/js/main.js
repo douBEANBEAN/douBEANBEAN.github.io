@@ -15,9 +15,16 @@ function initSidebar() {
   const overlay = document.getElementById('overlay');
   const sidebarLinks = document.querySelectorAll('.sidebar-link');
   
+  // 检查所有元素是否存在
+  console.log('menuToggle:', menuToggle);
+  console.log('sidebar:', sidebar);
+  console.log('sidebarClose:', sidebarClose);
+  console.log('overlay:', overlay);
+  
   // 打开侧边栏
-  if (menuToggle) {
+  if (menuToggle && sidebar && overlay) {
     menuToggle.addEventListener('click', function() {
+      console.log('点击了菜单按钮');
       sidebar.classList.add('active');
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden'; // 防止背景滚动
@@ -28,9 +35,11 @@ function initSidebar() {
   
   // 关闭侧边栏
   function closeSidebar() {
-    sidebar.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = ''; // 恢复背景滚动
+    if (sidebar && overlay) {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = ''; // 恢复背景滚动
+    }
   }
   
   // 点击关闭按钮
