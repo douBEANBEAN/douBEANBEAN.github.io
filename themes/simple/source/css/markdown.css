@@ -2,8 +2,83 @@
  * Markdown 样式
  */
 
+/* 标题样式 */
+.post-detail-content h1, 
+.post-detail-content h2, 
+.post-detail-content h3, 
+.post-detail-content h4, 
+.post-detail-content h5, 
+.post-detail-content h6 {
+  font-family: 'Noto Serif SC' !important;
+  font-weight: 700 !important; /* 标题使用粗体 */
+  margin-bottom: 6pt; /* 段后6磅距离 */
+}
+
+/* 一级标题 */
+.post-detail-content h1 {
+  font-size: 24px !important;
+  position: relative !important;
+  padding-left: 15px !important;
+  margin-bottom: 15pt !important; 
+  margin-top: 12pt !important;
+}
+
+.post-detail-content h1::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 4px !important;
+  background-color: var(--blue-color) !important;
+}
+
+/* 二级标题 */
+.post-detail-content h2 {
+  font-size: 20px !important;
+  margin-bottom: 8pt !important; 
+  position: relative !important;
+  padding-left: 20px !important;
+}
+
+.post-detail-content h2::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background-color: var(--blue-color) !important;
+}
+/* 三级标题 */
+.post-detail-content h3 {
+  font-size: 18px !important;
+  margin-bottom: 4pt !important; 
+}
+
+/* 正文段落 */
+.post-detail-content p {
+  margin-bottom: 6pt !important; 
+  text-indent: 0 !important; /* 取消首行缩进 */
+  padding-left: 1em !important; /* 整个段落较于标题缩进1格 */
+}
+
+/* 列表样式 */
+.post-detail-content ul,
+.post-detail-content ol {
+  margin-bottom: 10pt !important; /* 列表段后10pt */
+  margin-top: 8pt !important; /* 段与段之间8pt */
+  padding-left: 2em !important; /* 列表缩进 */
+}
+
+.post-detail-content li {
+  margin-bottom: 4pt !important; /* 列表项之间的间距 */
+}
+
 /* 超链接样式 */
-a {
+.post-detail-content a {
   color: var(--blue-color);
   text-decoration: none;
   position: relative;
@@ -11,34 +86,39 @@ a {
   cursor: var(--cursor-click);
 }
 
-a::after {
+.post-detail-content a::after {
   content: '';
   position: absolute;
   bottom: -2px;
   left: 0;
-  width: 0;
-  height: 2px;
-  background: #999;
-  transition: width 0.3s ease;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed var(--blue-color);
+  transition: all 0.3s ease;
 }
 
-/* 悬停效果：灰色荧光笔，无下划线 */
-a:hover {
+/* 悬停效果：灰色荧光笔 */
+.post-detail-content a:hover {
   color: var(--text-color);
-  background-color: rgba(153, 153, 153, 0.2);
+  background-color: rgba(0, 55, 164, 0.598);
   padding: 0 2px;
   border-radius: 2px;
 }
 
-a:hover::after {
-  width: 0;
+.post-detail-content a:hover::after {
+  border-bottom-color: var(--text-color);
 }
 
-/* 访问后效果：显示下划线和浅灰色 */
-a:visited {
-  color: #999;
+/* 访问后效果：与访问前一致 */
+.post-detail-content a:visited {
+  color: var(--blue-color);
 }
 
-a:visited::after {
-  width: 100%;
+.post-detail-content a:visited::after {
+  border-bottom-color: var(--blue-color);
+}
+
+/* 无缩进段落 */
+.no-indent {
+  text-indent: 0 !important;
 }

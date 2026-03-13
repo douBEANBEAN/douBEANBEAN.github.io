@@ -94,7 +94,8 @@
   font-size: 28px;
   margin-bottom: 10px;
   text-align: center;
-  font-family: "华文中宋", "STZhongsong", serif;
+  font-family: 'Noto Serif SC', "华文中宋", "STZhongsong", serif;
+  font-weight: 900; /* heavy字重 */
 }
 
 .post-detail-meta {
@@ -108,8 +109,9 @@
 
 .post-detail-content {
   font-size: var(--font-size-base);
-  line-height: 2;
-  font-family: "SimSun", serif;
+  line-height: 1.7;
+  font-family: 'Noto Serif SC', "SimSun", serif;
+  font-weight: 400; /* regular字重 */
   max-width: 800px;
   margin: 0 auto;
   text-align: justify;
@@ -120,23 +122,9 @@
   font-size: 28px;
   margin-bottom: var(--spacing-lg);
   text-align: center;
-  font-family: "华文中宋", "STZhongsong", serif;
+  font-family: 'Noto Serif SC', "华文中宋", "STZhongsong", serif;
+  font-weight: 900; 
   padding-left: 10px;
-}
-
-/* 关于页标题样式 */
-.about-title {
-  font-size: 28px;
-  margin-bottom: var(--spacing-lg);
-  text-align: center;
-  font-family: "华文中宋", "STZhongsong", serif;
-  padding-left: 10px;
-}
-
-/* 关于页内容样式 */
-.about-content {
-  font-size: var(--font-size-base);
-  line-height: 2;
 }
 
 /* 时间轴容器 */
