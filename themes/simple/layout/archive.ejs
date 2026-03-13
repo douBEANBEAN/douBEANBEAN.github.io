@@ -10,9 +10,21 @@
   <% } %>
 </h1>
 
+<!-- 分类筛选栏 -->
+<div class="category-filter">
+  <h3 class="filter-title">分类</h3>
+  <div class="filter-tags">
+    <% site.categories.each(function(category) { %>
+      <button class="filter-tag" data-category="<%= category.name %>"><%= category.name %></button>
+    <% }) %>
+  </div>
+</div>
+
 <!-- 归档博文时间轴 -->
 <% if (site.posts.length) { %>
   <div class="timeline-container">
+    <!-- 时间轴内容 -->
+    <div class="timeline-content-wrapper">
     <% var currentYear = null; %>
     <% site.posts.sort('date', -1).each(function(post, index) { %>
       <% if (!post.hidden) { %>
@@ -28,7 +40,7 @@
       <% } %>
       
       <!-- 博文时间轴项 -->
-      <div class="timeline-item">
+      <div class="timeline-item" data-categories="<%= post.categories && post.categories.length ? post.categories.toArray().map(cat => cat.name).join(',') : 'uncategorized' %>">
         <!-- 时间轴节点 -->
         <div class="timeline-node"></div>
         <!-- 时间轴内容 -->
@@ -40,9 +52,7 @@
           <!-- 分类信息 -->
           <% if (post.categories && post.categories.length) { %>
             <span class="timeline-category">
-              <% post.categories.each(function(category, i) { %>
-                <%= category.name %><% if (i < post.categories.length - 1) { %>, <% } %>
-              <% }) %>
+              <%= post.categories.toArray()[0].name %>
             </span>
           <% } %>
         </div>
@@ -57,12 +67,89 @@
       <% } else { %>
         </div><!-- 最后一个年份时间轴结束 -->
       <% } %>
-      <% } %>
+      <% }
     <% }) %>
   </div>
 <% } else { %>
   <div class="empty-tip">暂无归档博文</div>
 <% } %>
+
+<!-- 分类筛选脚本 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 检查是否为移动端
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      // 移动端取消分类筛选功能
+      const categoryFilter = document.querySelector('.category-filter');
+      if (categoryFilter) {
+        categoryFilter.style.display = 'none';
+      }
+      return;
+    }
+
+    const filterTags = document.querySelectorAll('.filter-tag');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    let selectedCategories = [];
+
+    // 初始化动画样式
+    timelineItems.forEach(item => {
+      item.style.transition = 'all 0.5s ease';
+      item.style.opacity = '1';
+      item.style.transform = 'translateY(0)';
+    });
+
+    // 筛选文章
+    function filterPosts() {
+      timelineItems.forEach(item => {
+        const categories = item.dataset.categories.split(',');
+        const isVisible = selectedCategories.length === 0 || selectedCategories.some(category => categories.includes(category));
+
+        if (isVisible) {
+          // 显示文章，添加上浮动画
+          item.style.display = 'block';
+          // 先设置初始状态
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(20px)';
+          // 触发重排
+          item.offsetHeight;
+          // 然后添加动画
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        } else {
+          // 隐藏文章，添加渐隐动画
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            item.style.display = 'none';
+          }, 500);
+        }
+      });
+    }
+
+    // 处理分类标签点击
+    filterTags.forEach(tag => {
+      tag.addEventListener('click', function() {
+        const category = this.dataset.category;
+
+        // 切换当前分类的选中状态
+        const index = selectedCategories.indexOf(category);
+        if (index > -1) {
+          // 取消选择
+          selectedCategories.splice(index, 1);
+          this.classList.remove('active');
+        } else {
+          // 选择分类
+          selectedCategories.push(category);
+          this.classList.add('active');
+        }
+
+        // 执行筛选
+        filterPosts();
+      });
+    });
+  });
+</script>
 
 <!-- 引入页脚组件 -->
 <%- partial('_partial/footer') %>

@@ -25,16 +25,22 @@
 .post-detail-container {
   display: flex;
   gap: 30px;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
   justify-content: center;
+  width: 100%;
+}
+
+.content-container {
+  max-width: 1050px !important;
 }
 
 /* 目录导航 */
 .toc-container {
   width: 250px;
-  position: sticky;
+  position: fixed;
+  left: 50px;
   top: 100px;
   height: fit-content;
   border: var(--border-width) solid var(--light-color);
@@ -113,6 +119,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .post-detail-content {
@@ -129,6 +137,33 @@
   margin-bottom: 10pt !important;
   text-indent: 0 !important;
   padding-left: 1em !important;
+}
+
+/* 评论系统样式 */
+.comment-section {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: var(--border-width) solid var(--light-color);
+  width: 100%;
+  max-width: 800px;
+}
+
+.comment-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  font-family: 'Noto Serif SC', "华文中宋", "STZhongsong", serif;
+  text-align: center;
+}
+
+/* 夜间模式评论系统样式 */
+body.dark-mode .comment-section {
+  border-top-color: var(--dark-border);
+}
+
+body.dark-mode .comment-title {
+  color: var(--dark-text);
 }
 
 /* 响应式适配 */

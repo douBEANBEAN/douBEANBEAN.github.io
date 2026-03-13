@@ -1,0 +1,170 @@
+/* 分类相关样式 */
+
+/* 分类筛选栏 */
+.category-filter {
+  position: fixed;
+  left: 50px;
+  top: 100px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  z-index: 100;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--text-color);
+  font-family: 'Noto Serif SC', "SimSun", serif;
+  font-weight: 700; /* bold字重 */
+  position: relative;
+  padding-left: 15px;
+}
+
+.filter-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 16px;
+  background-color: var(--blue-color);
+  border-radius: 2px;
+}
+
+.filter-tags {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.filter-tag {
+  padding: 5px 10px;
+  border: var(--border-width) solid var(--light-color);
+  border-radius: 15px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  cursor: var(--cursor-click);
+  transition: all 0.3s ease;
+  font-size: 12px;
+  font-family: 'Noto Serif SC', "SimSun", serif;
+  font-weight: 400; /* regular字重 */
+  text-align: center;
+}
+
+.filter-tag:hover {
+  background-color: var(--light-color);
+  transform: translateY(-2px);
+}
+
+.filter-tag.active {
+  background-color: var(--blue-color);
+  color: white;
+  border-color: var(--blue-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .category-filter {
+    display: none;
+  }
+}
+
+/* 分类页样式 */
+.category-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.category-posts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.category-post {
+  padding: var(--spacing-md);
+  border: var(--border-width) solid var(--light-color);
+  border-radius: var(--border-radius);
+  transition: box-shadow 0.3s;
+}
+
+.category-post:hover {
+  box-shadow: var(--box-shadow);
+}
+
+.category-post-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.category-post-meta {
+  font-size: var(--font-size-sm);
+  color: #999999;
+  margin-bottom: 10px;
+}
+
+.category-post-excerpt {
+  font-size: 15px;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+/* 夜间模式 */
+body.dark-mode .category-filter {
+  background-color: var(--dark-background);
+  border-color: var(--dark-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .filter-title {
+  color: var(--dark-text);
+}
+
+body.dark-mode .filter-tag {
+  background-color: var(--dark-background);
+  border-color: var(--dark-border);
+  color: var(--dark-text);
+}
+
+body.dark-mode .filter-tag:hover {
+  background-color: var(--dark-border);
+}
+
+body.dark-mode .filter-tag.active {
+  background-color: var(--blue-color);
+  color: white;
+  border-color: var(--blue-color);
+}
+
+body.dark-mode .category-title {
+  color: var(--dark-text);
+}
+
+body.dark-mode .category-post {
+  background-color: var(--dark-background);
+  border-color: var(--dark-border);
+}
+
+body.dark-mode .category-post-title {
+  color: var(--dark-text);
+}
+
+body.dark-mode .category-post-meta {
+  color: #888888;
+}
+
+body.dark-mode .category-post-excerpt {
+  color: #aaaaaa;
+}

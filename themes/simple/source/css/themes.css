@@ -27,16 +27,28 @@ body.dark-mode .nav-link:hover {
   color: #fff;
 }
 
+/* 可点击元素的光标样式 */
+.toc-item a,
+.sidebar-toc-link,
+.nav-link,
+.post-card-link,
+.menu-toggle,
+.sidebar-close,
+.post-link,
+.sidebar-link,
+.mode-btn {
+  cursor: var(--cursor-click);
+}
+
 /* 夜间模式下的可点击元素 */
 body.dark-mode .toc-item a,
 body.dark-mode .sidebar-toc-link,
 body.dark-mode .nav-link,
-body.dark-mode .post-link,
-body.dark-mode .timeline-link,
 body.dark-mode .post-card-link,
 body.dark-mode .menu-toggle,
 body.dark-mode .sidebar-close,
-body.dark-mode .post-detail-content a,
+body.dark-mode .post-link,
+body.dark-mode .sidebar-link,
 body.dark-mode .mode-btn {
   cursor: var(--cursor-click-dark);
 }

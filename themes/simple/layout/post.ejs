@@ -59,8 +59,26 @@
       <!-- 博文正文（解析 Markdown） -->
       <div class="post-detail-content"><%- page.content.replace(/^[\s\S]*?<span id="more"><\/span>/, '') %></div>
       <a id="bottom"></a>
+      
+      <!-- 评论系统 -->
+      <div class="comment-section">
+        <h3 class="comment-title">评论</h3>
+        <div id="momo-comment"></div>
+      </div>
     </div>
   </div>
+  
+  <!-- 评论系统脚本 -->
+  <script src="https://cdn.jsdelivr.net/npm/@motues/momo-comment/dist/momo-comment.min.js"></script>
+  <script>
+    momo.init({
+      el: 'momo-comment',
+      title: '<%= page.title %>',
+      slugid: '<%= page.path %>',
+      lang: 'zh-cn',
+      apiUrl: 'https://api-momo.motues.top'
+    });
+  </script>
   
   <!-- 目录导航脚本 -->
   <script>
