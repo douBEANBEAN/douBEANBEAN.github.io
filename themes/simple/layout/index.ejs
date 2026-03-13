@@ -8,21 +8,38 @@
     <% site.posts.sort('date', -1).each(function(post) { %>
       <% if (!post.hidden) { %>
       <!-- 单篇博文卡片 -->
-      <div class="post-card">
-        <!-- 博文标题 + 跳转链接 -->
-        <h2 class="post-title">
-          <a href="<%= post.permalink %>" class="post-link"><%= post.title %></a>
-        </h2>
-        <!-- 博文元信息：发布时间 -->
-        <div class="post-meta"><%= post.date.format('YYYY-MM-DD') %></div>
-        <!-- 博文摘要（自动截取前150字） -->
-        <div class="post-excerpt"><%= post.excerpt.substring(0, 150) %>...</div>
-      </div>
+      <a href="<%= post.permalink %>" class="post-card-link">
+        <div class="post-card">
+          <!-- 左侧内容 -->
+          <div class="post-left">
+            <!-- 博文标题 -->
+            <h2 class="post-title"><%= post.title %></h2>
+            <!-- 博文摘要（使用用户自定义摘要） -->
+            <div class="post-excerpt"><%- post.excerpt %></div>
+          </div>
+          <!-- 右侧内容 -->
+          <div class="post-right">
+            <div class="post-date"><%= post.date.format('YYYY-MM-DD') %></div>
+            <div class="post-meta">
+              <% if (post.content) { %>
+                <% var plainText = post.content.replace(/<[^>]*>/g, ''); %>
+                <%= plainText.length %>字 · <%= Math.ceil(plainText.length / 300) %>分钟
+              <% } %>
+              <% if (post.categories && post.categories.length) { %>
+                <% if (post.content) { %> · <% } %>
+                <% post.categories.each(function(category, i) { %>
+                  <%= category.name %><% if (i < post.categories.length - 1) { %>, <% } %>
+                <% }) %>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </a>
       <% } %>
     <% }) %>
   <% } else { %>
     <!-- 无博文时的提示 -->
-    <div class="empty-tip">暂无博文，快来写第一篇吧～</div>
+    <div class="empty-tip">暂无文章，敬请期待！ヾ(•ω•`)o</div>
   <% } %>
 </div>
 

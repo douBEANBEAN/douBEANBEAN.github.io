@@ -8,14 +8,90 @@
   </div>
 <% } else { %>
   <!-- 单篇博文详情容器 -->
-  <div class="post-detail">
-    <!-- 博文标题 -->
-    <h1 class="post-detail-title"><%= page.title %></h1>
-    <!-- 博文元信息 -->
-    <div class="post-detail-meta"><%= page.date ? page.date.format('YYYY-MM-DD') : '' %></div>
-    <!-- 博文正文（解析 Markdown） -->
-    <div class="post-detail-content"><%- page.content %></div>
+  <div class="post-detail-container">
+    <!-- 目录导航 -->
+    <div class="toc-container">
+      <div class="toc-title">目录</div>
+      <ul class="toc-list">
+        <li class="toc-item toc-top"><a href="#top">始</a></li>
+        <% if (page.toc && page.toc.length) { %>
+          <% page.toc.forEach(function(item) { %>
+            <li class="toc-item toc-level-<%= item.level %>">
+              <a href="#<%= item.id %>"><%= item.text %></a>
+            </li>
+          <% }) %>
+        <% } %>
+        <li class="toc-item toc-bottom"><a href="#bottom">末</a></li>
+      </ul>
+    </div>
+    <!-- 博文内容 -->
+    <div class="post-detail">
+      <a id="top"></a>
+      <!-- 博文标题 -->
+      <h1 class="post-detail-title"><%= page.title %></h1>
+      <!-- 博文元信息 -->
+      <div class="post-detail-meta">
+        <%= page.date ? page.date.format('YYYY-MM-DD') : '' %>
+         <br>
+        <% if (page.content) { %>
+            <% var plainText = page.content.replace(/<[^>]*>/g, ''); %>
+            <%= plainText.length %>字 · <%= Math.ceil(plainText.length / 300) %>分钟
+          <% } %>
+        <% if (page.categories && page.categories.length) { %>
+          · 
+          <% page.categories.each(function(category, i) { %>
+            <%= category.name %><% if (i < page.categories.length - 1) { %>, <% } %>
+          <% }) %>
+        <% } %>
+      </div>
+      <!-- 博文正文（解析 Markdown） -->
+      <div class="post-detail-content"><%- page.content %></div>
+      <a id="bottom"></a>
+    </div>
   </div>
+  
+  <!-- 目录导航脚本 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tocItems = document.querySelectorAll('.toc-item a');
+      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      
+      // 滚动监听
+      window.addEventListener('scroll', function() {
+        let current = '';
+        
+        headings.forEach(function(heading) {
+          const headingTop = heading.offsetTop;
+          if (window.scrollY >= headingTop - 100) {
+            current = heading.getAttribute('id');
+          }
+        });
+        
+        // 更新目录高亮
+        tocItems.forEach(function(item) {
+          item.parentElement.classList.remove('active');
+          if (item.getAttribute('href') === '#' + current) {
+            item.parentElement.classList.add('active');
+          }
+        });
+      });
+      
+      // 点击目录项平滑滚动
+      tocItems.forEach(function(item) {
+        item.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
 <% } %>
 
 <!-- 引入页脚组件 -->

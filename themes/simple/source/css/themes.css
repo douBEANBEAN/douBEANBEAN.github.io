@@ -40,16 +40,49 @@ body.dark-mode .timeline-link {
   cursor: var(--cursor-click-dark);
 }
 
+body.dark-mode .post-detail-content a {
+  cursor: var(--cursor-click-dark);
+}
+
 body.dark-mode .mode-btn {
   cursor: var(--cursor-click-dark);
 }
 
-/* 夜间模式下的卡片和内容 */
-body.dark-mode .post-card,
-body.dark-mode .timeline-content {
+/* 夜间模式下的卡片 */
+body.dark-mode .post-card {
   background-color: var(--dark-card);
   border-color: var(--dark-border);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .toc-container {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+body.dark-mode .toc-title {
+  border-bottom-color: var(--dark-text);
+  color: #fff;
+}
+
+body.dark-mode .toc-item a {
+  color: #fff;
+}
+
+body.dark-mode .toc-item a:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .toc-item.active a {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .toc-top a,
+body.dark-mode .toc-bottom a {
+  color: #fff !important;
 }
 
 body.dark-mode .post-link,
@@ -67,6 +100,12 @@ body.dark-mode .timeline-date {
   color: #999;
 }
 
+/* 夜间模式下的时间轴年份标题 */
+body.dark-mode .year-label {
+  color: var(--dark-text);
+  background: var(--dark-background);
+}
+
 body.dark-mode .post-excerpt {
   color: #ccc;
 }
@@ -79,6 +118,32 @@ body.dark-mode .footer {
 
 body.dark-mode .footer-container {
   color: #999;
+}
+
+body.dark-mode .sidebar {
+  background-color: var(--dark-card);
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .sidebar-close {
+  color: var(--dark-text);
+}
+
+body.dark-mode .sidebar-toc {
+  border-top-color: var(--dark-border);
+}
+
+body.dark-mode .sidebar-toc-title {
+  color: #fff;
+}
+
+body.dark-mode .sidebar-toc-link {
+  color: #fff;
+}
+
+body.dark-mode .sidebar-toc-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* 模式切换按钮 */

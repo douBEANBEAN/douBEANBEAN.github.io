@@ -23,6 +23,14 @@
   /* 内容容器 */
   .content-container {
     margin-top: 80px;
+    width: 95%;
+  }
+  
+  /* 正文内容 */
+  .post-detail-content {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    max-width: 100% !important;
   }
   
   /* 时间轴 */

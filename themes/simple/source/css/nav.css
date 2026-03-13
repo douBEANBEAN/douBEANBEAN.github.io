@@ -1,0 +1,28 @@
+/* 导航相关样式 */
+
+/* 站点名称样式 */
+.site-name {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
+/* 导航菜单样式 */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+/* 导航链接样式 */
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+  cursor: var(--cursor-click);
+}
+
+/* 导航链接 hover 效果 */
+.nav-link:hover {
+  color: var(--secondary-color);
+  cursor: var(--cursor-click);
+}

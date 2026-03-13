@@ -1,0 +1,126 @@
+/* 归档页相关样式 */
+
+/* 归档页样式 */
+.archive-title {
+  font-size: 28px;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  font-family: 'Noto Serif SC', "华文中宋", "STZhongsong", serif;
+  font-weight: 900; 
+  padding-left: 10px;
+}
+
+/* 时间轴容器 */
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 年份标题 */
+.timeline-year {
+  margin: 40px 0 20px;
+  position: relative;
+}
+
+.year-label {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+  background: var(--background-color);
+  padding-right: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 年份时间轴部分 */
+.timeline-year-section {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 30px;
+}
+
+/* 时间轴竖线 */
+.timeline-year-section::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--light-color);
+}
+
+/* 时间轴项 */
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* 时间轴节点 */
+.timeline-node {
+  position: absolute;
+  left: -40px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: 3px solid var(--background-color);
+  box-shadow: 0 0 0 2px var(--light-color);
+  z-index: 1;
+}
+
+/* 时间轴内容 */
+.timeline-content {
+  flex: 1;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.timeline-content:hover {
+  background-color: rgba(153, 153, 153, 0.1);
+}
+
+/* 时间轴日期 */
+.timeline-date {
+  font-size: var(--font-size-sm);
+  color: #999;
+  margin-right: 15px;
+  min-width: 40px;
+}
+
+/* 时间轴链接 */
+.timeline-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: var(--cursor-click);
+  flex: 1;
+}
+
+.timeline-content:hover .timeline-link {
+  transform: translateX(5px);
+  color: var(--secondary-color);
+}
+
+/* 分类信息样式 */
+.timeline-category {
+  font-size: var(--font-size-sm);
+  color: var(--secondary-color);
+  margin-left: 15px;
+  text-align: right;
+}
+
+.timeline-category::before {
+  content: '#';
+  margin-right: 2px;
+}

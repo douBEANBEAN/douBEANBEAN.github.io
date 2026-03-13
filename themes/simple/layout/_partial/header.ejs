@@ -14,7 +14,10 @@
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/variables.css">
   <link rel="stylesheet" href="/css/layout.css">
-  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/post.css">
+  <link rel="stylesheet" href="/css/archive.css">
   <link rel="stylesheet" href="/css/sidebar.css">
   <link rel="stylesheet" href="/css/markdown.css">
   <link rel="stylesheet" href="/css/themes.css">
@@ -61,6 +64,22 @@
         <!-- 关于：跳转到关于页 -->
         <li class="sidebar-item"><a href="/about/" class="sidebar-link">关于</a></li>
       </ul>
+      
+      <!-- 文章目录（仅在文章页显示） -->
+      <% if (page.type === 'post' && page.toc && page.toc.length) { %>
+        <div class="sidebar-toc">
+          <div class="sidebar-toc-title">文章目录</div>
+          <ul class="sidebar-toc-list">
+            <li class="sidebar-toc-item"><a href="#top" class="sidebar-toc-link">始</a></li>
+            <% page.toc.forEach(function(item) { %>
+              <li class="sidebar-toc-item sidebar-toc-level-<%= item.level %>">
+                <a href="#<%= item.id %>" class="sidebar-toc-link"><%= item.text %></a>
+              </li>
+            <% }) %>
+            <li class="sidebar-toc-item"><a href="#bottom" class="sidebar-toc-link">末</a></li>
+          </ul>
+        </div>
+      <% } %>
     </div>
   </div>
   

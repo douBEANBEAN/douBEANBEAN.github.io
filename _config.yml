@@ -56,6 +56,18 @@ prismjs:
   line_number: true
   tab_replace: ''
 
+# Table of Contents
+## https://hexo.io/docs/configuration.html#Table-of-Contents
+toc:
+  enable: true
+  number: true
+  depth: 3
+  rightside: false
+  wrap: true
+  expand_all: false
+  ordered_list: false
+  separator: '-'
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)

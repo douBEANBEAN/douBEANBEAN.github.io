@@ -37,6 +37,14 @@
           <span class="timeline-date"><%= post.date.format('M/D') %></span>
           <!-- 博文标题 -->
           <a href="<%= post.permalink %>" class="timeline-link"><%= post.title %></a>
+          <!-- 分类信息 -->
+          <% if (post.categories && post.categories.length) { %>
+            <span class="timeline-category">
+              <% post.categories.each(function(category, i) { %>
+                <%= category.name %><% if (i < post.categories.length - 1) { %>, <% } %>
+              <% }) %>
+            </span>
+          <% } %>
         </div>
       </div>
       

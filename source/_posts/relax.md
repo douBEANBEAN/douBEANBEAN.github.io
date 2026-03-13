@@ -1,6 +1,7 @@
 ---
 title: 睡鼠伯爵休闲时候
 date: 2026-03-08 23:35:46
+categories: 随便说说
 tags:
 hidden: true
 ---
