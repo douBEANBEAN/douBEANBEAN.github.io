@@ -1,0 +1,44 @@
+/**
+ * Markdown 样式
+ */
+
+/* 超链接样式 */
+a {
+  color: var(--blue-color);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: var(--cursor-click);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #999;
+  transition: width 0.3s ease;
+}
+
+/* 悬停效果：灰色荧光笔，无下划线 */
+a:hover {
+  color: var(--text-color);
+  background-color: rgba(153, 153, 153, 0.2);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+a:hover::after {
+  width: 0;
+}
+
+/* 访问后效果：显示下划线和浅灰色 */
+a:visited {
+  color: #999;
+}
+
+a:visited::after {
+  width: 100%;
+}
