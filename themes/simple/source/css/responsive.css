@@ -16,7 +16,7 @@
     gap: 15px;
   }
   
-  .nav-menu .nav-item:not(:nth-last-child(-n+2)) {
+  .nav-menu .nav-item:not(:last-child) {
     display: none;
   }
   
