@@ -14,8 +14,20 @@
 <div class="category-filter">
   <h3 class="filter-title">分类</h3>
   <div class="filter-tags">
+    <% var categoryNames = []; %>
     <% site.categories.each(function(category) { %>
-      <button class="filter-tag" data-category="<%= category.name %>"><%= category.name %></button>
+      <% if (!categoryNames.includes(category.name)) { %>
+        <% var hasVisiblePosts = false; %>
+        <% category.posts.each(function(post) { %>
+          <% if (!post.hidden) { %>
+            <% hasVisiblePosts = true; %>
+          <% } %>
+        <% }) %>
+        <% if (hasVisiblePosts) { %>
+          <% categoryNames.push(category.name); %>
+          <button class="filter-tag" data-category="<%= category.name %>"><%= category.name %></button>
+        <% } %>
+      <% } %>
     <% }) %>
   </div>
 </div>
