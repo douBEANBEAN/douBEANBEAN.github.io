@@ -116,6 +116,40 @@ function initSidebar() {
   }
 }
 
+// 页面可见性变化处理
+function initPageVisibility() {
+  const originalTitle = document.title;
+  let visibilityTimer = null;
+  
+  // 监听页面可见性变化
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      // 页面隐藏时
+      clearTimeout(visibilityTimer);
+      document.title = '404 Not Found';
+      // 隐藏favicon
+      const favicon = document.querySelector('link[rel*="icon"]');
+      if (favicon) {
+        favicon.setAttribute('data-original-href', favicon.getAttribute('href'));
+        favicon.setAttribute('href', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==');
+      }
+    } else {
+      // 页面显示时
+      clearTimeout(visibilityTimer);
+      document.title = '(*/ω＼*)嘿嘿，被骗啦';
+      // 恢复favicon
+      const favicon = document.querySelector('link[rel*="icon"]');
+      if (favicon && favicon.getAttribute('data-original-href')) {
+        favicon.setAttribute('href', favicon.getAttribute('data-original-href'));
+      }
+      // 3秒后恢复原标题
+      visibilityTimer = setTimeout(function() {
+        document.title = originalTitle;
+      }, 3000);
+    }
+  });
+}
+
 // 页面加载完成后执行
 document.addEventListener('DOMContentLoaded', function() {
   // 初始化各个模块
@@ -123,4 +157,5 @@ document.addEventListener('DOMContentLoaded', function() {
   initAnimations();
   initThemeToggle();
   initSidebar();
+  initPageVisibility();
 });

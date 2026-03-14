@@ -1,7 +1,9 @@
 ---
 title: Hello World!
 date: 2026-03-06 18:55:25
-categories: 随便说说
+categories: 
+- 随便说说
+- 开心！
 tags:
 ---
 世界，你好！
