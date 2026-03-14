@@ -132,6 +132,21 @@
       });
     });
   </script>
+  
+  <!-- 评论区 -->
+  <div class="comments-section">
+    <h3 class="comments-title">评论</h3>
+    <div id="twikoo"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.30/dist/twikoo.all.min.js"></script>
+  <script>
+    twikoo.init({
+      envId: 'https://twikoo.bigbean.top', // 你的 Twikoo 环境 ID
+      el: '#twikoo', // 评论容器
+      path: '<%= page.permalink %>', // 文章路径，用于区分不同文章的评论
+      lang: 'zh-CN' // 语言
+    });
+  </script>
 <% } %>
 
 <!-- 引入页脚组件 -->

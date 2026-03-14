@@ -1,0 +1,239 @@
+/* 评论区样式 */
+.comments-section {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-radius: var(--border-radius);
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.comments-title {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: var(--text-color);
+  font-family: 'Noto Serif SC', "华文中宋", "STZhongsong", serif;
+  font-weight: 700;
+  text-align: left;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--light-color);
+  transition: all 0.3s ease;
+}
+
+/* Twikoo 评论容器 */
+.twikoo-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 日间模式 - 使用body选择器提高优先级 */
+body #twikoo {
+  font-family: 'Noto Serif SC', "SimSun", serif;
+  color: var(--text-color) !important;
+}
+
+body #twikoo .el-textarea__inner {
+  font-family: 'Noto Serif SC', "SimSun", serif;
+  font-size: 14px;
+  line-height: 1.5;
+  border: 1px solid var(--light-color);
+  border-radius: var(--border-radius);
+  padding: 12px;
+  transition: all 0.3s ease;
+  color: var(--text-color) !important;
+}
+
+body #twikoo .el-textarea__inner:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);
+}
+
+body #twikoo .el-button {
+  font-family: 'Noto Serif SC', "华文中宋", "STZhongsong", serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  color: var(--text-color) !important;
+  border-color: var(--light-color) !important;
+}
+
+body #twikoo .el-button:hover {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+body #twikoo .el-button--primary {
+  background-color: var(--blue-color) !important;
+  border-color: var(--blue-color) !important;
+  border-radius: var(--border-radius);
+  padding: 8px 20px;
+  font-family: 'Noto Serif SC', "华文中宋", "STZhongsong", serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: #fff !important;
+}
+
+body #twikoo .el-button--primary:hover {
+  background-color: #0066cc !important;
+  border-color: #0066cc !important;
+  cursor: url(/images/click.cur), auto !important;
+}
+
+/* 为所有可点击元素添加自定义光标 */
+body #twikoo a,
+body #twikoo button,
+body #twikoo .el-button,
+body #twikoo .el-checkbox,
+body #twikoo .el-radio,
+body #twikoo .tk-comment-actions a,
+body #twikoo .tk-pagination a,
+body #twikoo .el-input__inner,
+body #twikoo .el-textarea__inner {
+  cursor: url(/images/click.cur), auto !important;
+}
+
+body #twikoo .el-input__inner,
+body #twikoo .el-select,
+body #twikoo .el-checkbox,
+body #twikoo .el-radio {
+  font-family: 'Noto Serif SC', "SimSun", serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  color: var(--text-color) !important;
+  border-color: var(--light-color) !important;
+}
+
+body #twikoo .el-form-item__label {
+  color: var(--text-color) !important;
+}
+
+body #twikoo .tk-comments {
+  margin-top: 30px;
+}
+
+body #twikoo .tk-comment {
+  padding: 15px 0;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 15px;
+  transition: none;
+  border-bottom: 1px solid var(--light-color);
+}
+
+body #twikoo .tk-comment:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+body #twikoo .tk-comment-author {
+  font-weight: 600;
+  color: var(--text-color) !important;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+body #twikoo .tk-comment-time {
+  font-size: 12px;
+  color: var(--secondary-color) !important;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+body #twikoo .tk-comment-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-color) !important;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+body #twikoo .tk-comment-actions {
+  font-size: 12px;
+  color: var(--secondary-color) !important;
+  transition: color 0.3s ease;
+}
+
+body #twikoo .tk-comment-actions a {
+  color: var(--secondary-color) !important;
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+body #twikoo .tk-comment-actions a:hover {
+  color: var(--accent-color, var(--secondary-color)) !important;
+}
+
+/* 评论区超链接样式 - 适配md文档格式 */
+body #twikoo .tk-comment-content a {
+  color: var(--blue-color) !important;
+  text-decoration: none;
+  border-bottom: 1px solid var(--blue-color);
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+body #twikoo .tk-comment-content a:hover {
+  color: var(--secondary-color) !important;
+  border-bottom-color: var(--secondary-color);
+  background-color: rgba(0, 122, 255, 0.1);
+  padding-bottom: 2px;
+}
+
+/* 评论区回复样式 */
+body #twikoo .tk-comment-content .tk-at {
+  color: var(--blue-color) !important;
+  text-decoration: none;
+  border-bottom: 1px solid var(--blue-color);
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+  cursor: url(/images/click.cur), auto !important;
+}
+
+body #twikoo .tk-comment-content .tk-at:hover {
+  color: var(--secondary-color) !important;
+  border-bottom-color: var(--secondary-color);
+  background-color: rgba(0, 122, 255, 0.1);
+  padding-bottom: 2px;
+}
+
+/* 回复前缀样式 */
+body #twikoo .tk-comment-content .tk-reply {
+  color: var(--text-color) !important;
+  margin-right: 5px;
+}
+
+body #twikoo .tk-count {
+  color: var(--text-color) !important;
+}
+
+body #twikoo .tk-pagination {
+  color: var(--text-color) !important;
+}
+
+body #twikoo .tk-pagination a {
+  color: var(--text-color) !important;
+}
+
+body #twikoo .tk-pagination a:hover {
+  color: var(--secondary-color) !important;
+}
+
+
+
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .comments-section {
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  .comments-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  #twikoo .tk-comment {
+    padding: 15px;
+  }
+}

@@ -118,3 +118,9 @@ deploy:
   repo: git@github.com:douBEANBEAN/douBEANBEAN.github.io.git
   branch: main
   force: true
+
+# Twikoo 评论系统
+twikoo:
+  enable: true
+  envId: https://twikoo.bigbean.top # 你的Vercel部署地址（绑定的子域名）
+  region: # 可选，如 'ap-shanghai'，不填则使用默认值
