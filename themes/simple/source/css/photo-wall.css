@@ -1,0 +1,142 @@
+/* 外层包裹：避开 header，防止遮挡 */ 
+.photo-wall-wrapper { 
+  position: relative; /* 让麻绳的绝对定位基于这个容器 */ 
+  margin-top: 80px;   /* 关键：避开 header 的高度，根据你实际 header 高度调整 */ 
+  width: 100%; 
+  padding: 40px 0; 
+  background: #f8f3e6; /* 手绘底色 */ 
+}
+
+/* 麻绳：使用手绘图案 */ 
+.rope { 
+  position: absolute; 
+  top: 0; /* 放在包裹容器的顶部，刚好避开 header */ 
+  left: 0; 
+  width: 100%; 
+  height: 60px; /* 调整高度以适应手绘麻绳图案 */ 
+  background-image: url('/images/hand-drawn-rope.png');
+  background-size: cover;
+  background-position: center;
+  cursor: pointer; 
+  z-index: 999; /* 关键：设足够高的层级，超过 header 的 z-index */ 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 增加阴影，使其更立体 */ 
+}
+
+/* 麻绳震动动画 */ 
+@keyframes shake-rope { 
+  0%, 100% { transform: translateY(0) rotate(0deg); } 
+  20% { transform: translateY(-3px) rotate(0.5deg); } 
+  40% { transform: translateY(2px) rotate(-0.5deg); } 
+  60% { transform: translateY(-2px) rotate(0.3deg); } 
+  80% { transform: translateY(1px) rotate(-0.3deg); } 
+}
+.rope.shake { 
+  animation: shake-rope 0.5s ease-in-out 2; 
+}
+
+/* 照片墙容器：横向滚动，完整显示所有照片 */ 
+.photo-wall-container { 
+  width: 100%; 
+  overflow-x: auto; 
+  overflow-y: hidden; 
+  scrollbar-width: none; /* 隐藏滚动条（美观） */ 
+  -ms-overflow-style: none; 
+  padding-top: 20px; /* 给麻绳留空间 */ 
+}
+.photo-wall-container::-webkit-scrollbar { 
+  display: none; 
+}
+
+/* 照片墙：撑开宽度，容纳所有照片 */ 
+.photo-wall { 
+  display: flex; 
+  gap: 50px; /* 照片间距 */ 
+  padding: 0 20px 20px; 
+  min-width: max-content; 
+}
+
+/* 文章卡片项：手绘风格 */ 
+.photo-item { 
+  width: 200px; 
+  height: 280px; 
+  flex-shrink: 0; /* 不被压缩 */ 
+  position: relative; 
+  transform: rotate(-1deg); 
+  transition: all 0.3s ease; 
+}
+.photo-item:hover { 
+  transform: rotate(1deg) scale(1.05); 
+}
+
+/* 木夹子 */ 
+.clip { 
+  position: absolute; 
+  top: -40px; /* 调整位置，使其挂在麻绳上 */ 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 12px; 
+  height: 30px; 
+  background: #d4b894; 
+  border-radius: 2px; 
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2); 
+  z-index: 10; 
+}
+.clip::before { 
+  content: ''; 
+  position: absolute; 
+  top: 0; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 10px; 
+  height: 10px; 
+  background: #b8956e; 
+  border-radius: 50%; 
+}
+
+/* 文章卡片样式 */
+.post-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.post-card {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 8px solid #fff;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-card h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: var(--text-color);
+  font-family: 'Noto Serif SC', "华文中宋", "STZhongsong", serif;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.post-card .post-meta {
+  font-size: 14px;
+  color: #999;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.post-card .post-excerpt {
+  font-size: 14px;
+  color: var(--secondary-color);
+  margin: 10px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
