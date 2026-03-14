@@ -122,3 +122,18 @@
 .no-indent {
   text-indent: 0 !important;
 }
+
+/* 图片样式 */
+.post-detail-content img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border-radius: var(--border-radius) !important;
+}
+
+/* 图片居中和响应式调整 */
+.post-detail-content p img {
+  max-width: 100% !important;
+  height: auto !important;
+}
