@@ -10,6 +10,7 @@ body.dark-mode .about-title {
 body.dark-mode {
   background-color: var(--dark-background);
   color: var(--dark-text);
+  --text-color: #ffffff;
 }
 
 /* 夜间模式下的导航栏 */
@@ -25,6 +26,11 @@ body.dark-mode .nav-link {
 
 body.dark-mode .nav-link:hover {
   color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .nav-link::after {
+  background-color: #fff;
 }
 
 /* 可点击元素的光标样式 */
@@ -36,7 +42,7 @@ body.dark-mode .nav-link:hover {
 .sidebar-close,
 .post-link,
 .sidebar-link,
-.mode-btn {
+.theme-toggle {
   cursor: var(--cursor-click);
 }
 
@@ -49,7 +55,9 @@ body.dark-mode .menu-toggle,
 body.dark-mode .sidebar-close,
 body.dark-mode .post-link,
 body.dark-mode .sidebar-link,
-body.dark-mode .mode-btn {
+body.dark-mode .filter-tag,
+body.dark-mode .timeline-link,
+body.dark-mode .theme-toggle {
   cursor: var(--cursor-click-dark);
 }
 
@@ -149,40 +157,4 @@ body.dark-mode .sidebar-toc-link {
 body.dark-mode .sidebar-toc-link:hover {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* 模式切换按钮 */
-.mode-toggle {
-  position: absolute;
-  top: 80px;
-  right: 20px;
-  z-index: 998;
-}
-
-.mode-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid var(--primary-color);
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-.mode-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* 夜间模式下的按钮 */
-body.dark-mode .mode-btn {
-  background-color: var(--dark-card);
-  color: var(--dark-text);
-  border: 2px solid #fff;
 }

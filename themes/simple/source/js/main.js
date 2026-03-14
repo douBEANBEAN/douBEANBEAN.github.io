@@ -15,16 +15,9 @@ function initSidebar() {
   const overlay = document.getElementById('overlay');
   const sidebarLinks = document.querySelectorAll('.sidebar-link');
   
-  // 检查所有元素是否存在
-  console.log('menuToggle:', menuToggle);
-  console.log('sidebar:', sidebar);
-  console.log('sidebarClose:', sidebarClose);
-  console.log('overlay:', overlay);
-  
   // 打开侧边栏
   if (menuToggle && sidebar && overlay) {
     menuToggle.addEventListener('click', function() {
-      console.log('点击了菜单按钮');
       sidebar.classList.add('active');
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden'; // 防止背景滚动

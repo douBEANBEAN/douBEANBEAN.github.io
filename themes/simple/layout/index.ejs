@@ -27,9 +27,7 @@
               <% } %>
               <% if (post.categories && post.categories.length) { %>
                 <% if (post.content) { %> · <% } %>
-                <% post.categories.each(function(category, i) { %>
-                  <%= category.name %><% if (i < post.categories.length - 1) { %>, <% } %>
-                <% }) %>
+                <%= post.categories.toArray()[0].name %>
               <% } %>
             </div>
           </div>

@@ -46,6 +46,23 @@
 
 .sidebar-container {
   padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 侧边栏日夜间模式切换按钮 */
+.sidebar-theme-toggle {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.sidebar-theme-toggle .theme-toggle {
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
 }
 
 .sidebar-close {
@@ -149,24 +166,7 @@
   visibility: visible;
 }
 
-/* 夜间模式下的侧边栏 */
-body.dark-mode .sidebar {
-  background-color: var(--dark-background);
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
-}
-
-body.dark-mode .sidebar-close {
-  color: var(--dark-text);
-}
-
-body.dark-mode .sidebar-link {
-  color: var(--dark-text);
-}
-
-body.dark-mode .sidebar-link:hover {
-  color: #fff;
-}
-
+/* 夜间模式下的汉堡菜单图标 */
 body.dark-mode .menu-icon {
   background-color: var(--dark-text);
 }

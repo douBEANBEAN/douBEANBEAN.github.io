@@ -12,12 +12,17 @@
   
   /* 隐藏桌面端导航菜单 */
   .nav-menu {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-menu .nav-item:not(:last-child) {
     display: none;
   }
   
   /* 显示汉堡菜单按钮 */
   .menu-toggle {
-    display: flex;
+    display: block;
   }
   
   /* 内容容器 */
@@ -51,10 +56,7 @@
     margin-bottom: 5px;
   }
   
-  /* 模式切换按钮 */
-  .mode-toggle {
-    top: 80px;
-  }
+
 }
 
 /* 平板端适配 */
