@@ -10,8 +10,14 @@
 .nav-menu {
   list-style: none;
   display: flex;
-  gap: 0;
+  gap: 30px;
   align-items: center;
+}
+
+/* 汉堡菜单按钮在导航菜单中的样式 */
+.nav-menu .menu-toggle {
+  display: none;
+  margin-left: 10px;
 }
 
 /* 日夜间模式切换按钮 */

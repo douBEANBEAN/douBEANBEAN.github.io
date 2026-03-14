@@ -16,8 +16,13 @@
     gap: 15px;
   }
   
-  .nav-menu .nav-item:not(:last-child) {
+  .nav-menu .nav-item:not(:nth-last-child(-n+2)) {
     display: none;
+  }
+  
+  /* 移动端显示汉堡菜单按钮 */
+  .nav-menu .menu-toggle {
+    display: flex;
   }
   
   /* 显示汉堡菜单按钮 */
