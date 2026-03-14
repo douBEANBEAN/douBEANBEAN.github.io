@@ -56,6 +56,14 @@
   .post-excerpt {
     font-size: 14px;
   }
+  
+  .post-date {
+    font-size: 10px;
+  }
+  
+  .post-meta {
+    font-size: 10px;
+  }
 }
 
 .post-left {
