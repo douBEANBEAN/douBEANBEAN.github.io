@@ -143,7 +143,7 @@
     twikoo.init({
       envId: 'https://twikoo.bigbean.top', // 你的 Twikoo 环境 ID
       el: '#twikoo', // 评论容器
-      path: '<%= page.permalink %>', // 文章路径，用于区分不同文章的评论
+      path: window.location.pathname, // 使用当前页面路径作为标识
       lang: 'zh-CN' // 语言
     });
   </script>
