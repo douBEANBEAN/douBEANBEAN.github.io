@@ -5,7 +5,7 @@ categories:
 - 朝花夕拾 
 - 随便说说
 - 平静
-hiddeen: true
+hidden: true
 ---
 就让这大雨稀里哗啦
 <!-- more -->
