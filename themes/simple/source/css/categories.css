@@ -71,7 +71,7 @@
 }
 
 /* 响应式设计 */
-@media (max-width: 768px) {
+@media (max-width: 1250px) {
   .category-filter {
     position: static;
     background-color: transparent;

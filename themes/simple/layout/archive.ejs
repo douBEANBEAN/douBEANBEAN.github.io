@@ -43,12 +43,10 @@
       <% var postYear = post.date.format('YYYY'); %>
       <% if (currentYear !== postYear) { %>
         <% currentYear = postYear; %>
-        <!-- 年份标题 -->
+        <!-- 年份标题 - 时间轴断点 -->
         <div class="timeline-year">
           <span class="year-label"><%= currentYear %></span>
         </div>
-        <!-- 年份时间轴开始 -->
-        <div class="timeline-year-section">
       <% } %>
       
       <!-- 博文时间轴项 -->
@@ -60,7 +58,7 @@
           <!-- 发布日期 -->
           <span class="timeline-date"><%= post.date.format('M/D') %></span>
           <!-- 博文标题 -->
-          <a href="<%= post.permalink %>" class="timeline-link"><%= post.title %></a>
+          <a href="<%= url_for(post.path) %>" class="timeline-link"><%= post.title %></a>
           <!-- 分类信息 -->
           <% if (post.categories && post.categories.length) { %>
             <span class="timeline-category">
@@ -69,16 +67,6 @@
           <% } %>
         </div>
       </div>
-      
-      <% if (index < site.posts.length - 1) { %>
-        <% var nextPost = site.posts.toArray()[index + 1]; %>
-        <% var nextYear = nextPost.date.format('YYYY'); %>
-        <% if (currentYear !== nextYear) { %>
-          </div><!-- 年份时间轴结束 -->
-        <% } %>
-      <% } else { %>
-        </div><!-- 最后一个年份时间轴结束 -->
-      <% } %>
       <% } %>
     <% }) %>
     </div>

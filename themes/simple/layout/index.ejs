@@ -8,7 +8,7 @@
     <% site.posts.sort('date', -1).each(function(post) { %>
       <% if (!post.hidden) { %>
       <!-- 单篇博文卡片 -->
-      <a href="<%= post.permalink %>" class="post-card-link">
+      <a href="<%= url_for(post.path) %>" class="post-card-link">
         <div class="post-card">
           <!-- 左侧内容 -->
           <div class="post-left">
