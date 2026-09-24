@@ -103,6 +103,8 @@
         const isVisible = selectedCategories.length === 0 || selectedCategories.some(category => categories.includes(category));
 
         if (isVisible) {
+          // 移除隐藏标记
+          item.removeAttribute('data-filtered');
           // 显示文章，添加上浮动画
           item.style.display = 'block';
           // 先设置初始状态
@@ -114,12 +116,44 @@
           item.style.opacity = '1';
           item.style.transform = 'translateY(0)';
         } else {
+          // 标记为已筛选隐藏
+          item.setAttribute('data-filtered', 'true');
           // 隐藏文章，添加渐隐动画
           item.style.opacity = '0';
           item.style.transform = 'translateY(20px)';
           setTimeout(() => {
             item.style.display = 'none';
           }, 500);
+        }
+      });
+
+      // 根据筛选结果隐藏无文章的年份标签
+      var yearLabels = document.querySelectorAll('.timeline-year');
+      yearLabels.forEach(function(year) {
+        if (selectedCategories.length === 0) {
+          year.style.display = 'block';
+          year.style.opacity = '1';
+          return;
+        }
+        
+        var hasVisiblePost = false;
+        var sibling = year.nextElementSibling;
+        
+        while (sibling && !sibling.classList.contains('timeline-year')) {
+          if (sibling.classList.contains('timeline-item') && 
+              !sibling.hasAttribute('data-filtered')) {
+            hasVisiblePost = true;
+            break;
+          }
+          sibling = sibling.nextElementSibling;
+        }
+        
+        if (hasVisiblePost) {
+          year.style.display = 'block';
+          year.style.opacity = '1';
+        } else {
+          year.style.opacity = '0';
+          year.style.display = 'none';
         }
       });
     }

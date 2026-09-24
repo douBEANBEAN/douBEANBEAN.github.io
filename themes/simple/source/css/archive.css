@@ -64,8 +64,9 @@
 /* 时间轴小节点 */
 .timeline-node {
   position: absolute;
-  left: -25px;
-  top: 6px;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 12px;
   height: 12px;
   border-radius: 50%;
